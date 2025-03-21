@@ -11,7 +11,7 @@ import exit from '../assets/Image/ball-exit.webp'
 import ball from '../assets/Image/ball-3d.svg'
 
 
-import '../css/DevelopmentProcess.css';
+import '../Css/DevelopmentProcess.css';
 
 const DevelopmentProcess = () => {
   const [ballStyle, setBallStyle] = useState({
