@@ -121,7 +121,7 @@ const Navbar = () => {
             </button>
 
             {/* Desktop Navigation Links */}
-            <ul className="nav-links md:flex gap-8 hidden text-sm">
+            <ul className="nav-links md:flex gap-8 hidden text-sm ">
               {navItems.map((item) => (
                 <li key={item.name} className="text-lg relative">
                   {/* Dropdown for "About Us" */}
@@ -138,7 +138,7 @@ const Navbar = () => {
                       >
                         {item.name}
                         {/* Dropdown Arrow */}
-                        <svg
+                        {/* <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -151,7 +151,7 @@ const Navbar = () => {
                             strokeLinejoin="round"
                             d="M19 9l-7 7-7-7"
                           />
-                        </svg>
+                        </svg> */}
                         
                       </button>
                       {/* Show dropdown menu on hover */}
@@ -184,10 +184,10 @@ const Navbar = () => {
 
             {/* Action Buttons (only visible on desktop) */}
             <div className="nav-buttons hidden md:flex gap-4">
-              <button className="px-4 py-2 bg-transparent border border-[#f5f5f5] text-white rounded-full hover:bg-gradient-to-r hover:from-[#FFA07A] hover:to-[#FF6347] hover:border-transparent">
+              <button style={{borderRadius:'15px'}} className="px-4 py-2 bg-transparent border border-[#f5f5f5] text-white rounded-full hover:bg-gradient-to-r hover:from-[#FFA07A] hover:to-[#FF6347] hover:border-transparent">
                 Hire Developers
               </button>
-              <button className="px-4 py-2 bg-gradient-to-r from-[#FFA07A] to-[#FF6347] text-white rounded-full hover:from-[#E25F3C] hover:to-[#C84F33]">
+              <button  style={{borderRadius:'15px'}} className="px-4 py-2 bg-gradient-to-r from-[#FFA07A] to-[#FF6347] text-white rounded-full hover:from-[#E25F3C] hover:to-[#C84F33]">
                 Get a Quote
               </button>
             </div>
@@ -254,7 +254,7 @@ const Navbar = () => {
             {/* Action Buttons (Mobile) - Fixed text size */}
           
             <div className="flex flex-col gap-4 w-full mt-4">
-              <button className="w-full px-4 py-2 bg-transparent border-2 border-[#f5f5f5] text-white rounded-full hover:bg-gradient-to-r hover:from-[#FFA07A] hover:to-[#FF6347] hover:border-transparent text-lg">
+              <button className="w-full px-4 py-2 bg-transparent border-2 border-[#f5f5f5] text-white  hover:bg-gradient-to-r rounded-lg hover:from-[#FFA07A] hover:to-[#FF6347] hover:border-transparent text-lg">
                 Hire Developers
               </button>
               <button className="w-full px-4 py-2 bg-gradient-to-r from-[#FFA07A] to-[#FF6347] text-white rounded-full hover:from-[#E25F3C] hover:to-[#C84F33] text-lg">
@@ -286,16 +286,17 @@ const Navbar = () => {
               <h1 className="Web text-4xl font-bold title md:text-8xl leading-tight mb-8 text-white">Company</h1>
               
               <button
-                className="flex getstart items-center justify-center px-1 py-2 m-2 text-white font-semibold rounded-lg transition-all duration-300 sm:ml-2 md:ml-0"
+                className="flex getstart items-center justify-center px-1 py-2 m-2 text-white font-semibold rounded-4xl transition-all duration-300 sm:ml-1 md:ml-2"
                 style={{
                   willChange: "transform",
                   transition: "transform 250ms",
                   background:
                     "linear-gradient(94.76deg, rgb(244, 123, 85) 1.49%, rgb(255, 61, 0) 95.34%)", // Gradient background
-                  transform: "translateY(-4px)", // Initial transform state
+                  transform: "translateY(104px)", // Initial transform state
                   height: "58px",
                   fontWeight: "700",
                   fontSize: "29px",
+                  borderRadius:"20px",
                   lineHeight: "30px",
                   textTransform: "uppercase",
                 }}
@@ -312,29 +313,30 @@ const Navbar = () => {
 
       </div >
       <div className="bg-[#112545] relative project z-10 border-2 rounded-3xl md:mt-0 md:pt-0 border-cyan-400 max-w-6xl mx-auto mt-16 px-4">
-        <div className="backdrop-blur-sm rounded-3xl p-8 ">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {/* Successful Projects */}
-            <div className="text-center">
-              <div className="text-white text-xl">Successful Projects</div>
-              <div className="text-cyan-400 text-4xl sm:text-5xl md:text-6xl font-bold mb-2">100+</div>
-            </div>
-
-            {/* Repeated Client */}
-            <div className="text-center">
-              <div className="text-white text-xl">Repeated Client</div>
-              <div className="text-cyan-400 text-4xl sm:text-5xl md:text-6xl font-bold mb-2">80%</div>
-            </div>
-
-            {/* Years in Industry */}
-            <div className="text-center">
-              <div className="text-white text-xl">Years in Industry</div>
-              <div className="text-cyan-400 text-4xl sm:text-5xl md:text-6xl font-bold mb-2">9+</div>
-            </div>
-          </div>
-        </div>
+  <div className="backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8">
+    <div className="flex flex-row overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {/* Successful Projects */}
+      <div className="text-center flex-shrink-0 w-1/3 sm:w-auto p-2">
+        <div className="text-white text-sm sm:text-lg md:text-xl">Successful Projects</div>
+        <div className="text-cyan-400 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">100+</div>
+      </div>
+      
+      {/* Repeated Client */}
+      <div className="text-center flex-shrink-0 w-1/3 sm:w-auto p-2">
+        <div className="text-white text-sm sm:text-lg md:text-xl">Repeated Client</div>
+        <div className="text-cyan-400 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">80%</div>
+      </div>
+      
+      {/* Years in Industry */}
+      <div className="text-center flex-shrink-0 w-1/3 sm:w-auto p-2">
+        <div className="text-white text-sm sm:text-lg md:text-xl">Years in Industry</div>
+        <div className="text-cyan-400 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">9+</div>
       </div>
     </div>
+  </div>
+</div>
+      </div>
+  
   );
 };
 

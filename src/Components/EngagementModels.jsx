@@ -42,8 +42,8 @@ function EngagementModels() {
                         onMouseEnter={() => setIsHover(true)}
                         onMouseLeave={() => setIsHover(false)}
                     >
-                        <div className="rounded-[17px] absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.58)_0%,rgba(1,19,46,0)_100%),linear-gradient(91.17deg,rgb(255,255,255)_-93.64%,rgb(129,179,255)_98.85%)] 
-                        transition-all duration-700 h-[90px] sm:h-[100px] md:h-[115px] group-hover:h-full"></div>
+                        <div className="rounded-[15px] absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.58)_0%,rgba(1,19,46,0)_100%),linear-gradient(91.17deg,rgb(255,255,255)_-93.64%,rgb(120,179,255)_98.85%)] 
+                        transition-all duration-1500 h-[90px] sm:h-[100px] md:h-[115px] group-hover:h-full"></div>
 
                         {/* Content Container */}
                         <div className="relative z-10 flex flex-col h-full">

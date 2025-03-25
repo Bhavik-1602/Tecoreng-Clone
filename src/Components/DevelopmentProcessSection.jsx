@@ -52,8 +52,8 @@ const DevelopmentProcess = () => {
       { x: -50, y: 1700 },            // Testing point
       { x: 1200, y: 2000 },           // Deployment point
       { x: -125, y: 2500 },           // Evaluation point
-      { x: 1050, y: 2850 },           // Maintenance point
-      { x: 1500, y: 2900 }            // End at ballexit (exit point)
+      { x: 1050, y: 2600 },           // Maintenance point
+      { x: 1325, y: 2800 }            // End at ballexit (exit point)
     ];
 
     // Find current segment
@@ -64,7 +64,7 @@ const DevelopmentProcess = () => {
     // Calculate current position
     const start = path[currentSegment];
     const end = path[currentSegment + 1];
-    
+
     // Interpolate position
     const x = start.x + (end.x - start.x) * segmentProgress;
     const y = start.y + (end.y - start.y) * segmentProgress;
@@ -84,7 +84,7 @@ const DevelopmentProcess = () => {
     window.addEventListener('scroll', handleScroll);
     // Initial position calculation
     handleScroll();
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -94,9 +94,9 @@ const DevelopmentProcess = () => {
     <div className="development-container" ref={containerRef}>
       <h1
         className="text-5xl  font-extrabold ml-10 text-left mb-9  text-white tracking-wide"
-        // style={{
-        //   textShadow: "rgb(239, 237, 227) -1px -1px 1px, rgb(1, 19, 46) 0px 1px 0px, rgb(1, 19, 46) 0px 2px 0px, rgb(1, 19, 46) 0px 3px 0px, rgb(1, 19, 46) 0px 4px 0px, rgb(1, 19, 46) 0px 5px 0px, rgb(77, 89, 108) 0px 6px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px, rgba(0, 0, 0, 0.3) 0px 0px 0px, rgba(0, 0, 0, 0.5) 0px 0px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px"
-        // }}
+      // style={{
+      //   textShadow: "rgb(239, 237, 227) -1px -1px 1px, rgb(1, 19, 46) 0px 1px 0px, rgb(1, 19, 46) 0px 2px 0px, rgb(1, 19, 46) 0px 3px 0px, rgb(1, 19, 46) 0px 4px 0px, rgb(1, 19, 46) 0px 5px 0px, rgb(77, 89, 108) 0px 6px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px, rgba(0, 0, 0, 0.3) 0px 0px 0px, rgba(0, 0, 0, 0.5) 0px 0px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px"
+      // }}
       >
         Our Development Process
       </h1>
@@ -106,7 +106,7 @@ const DevelopmentProcess = () => {
         <img
           src={ball}
           alt="Ball"
-          
+
           className="ball"
           style={ballStyle}
         />
@@ -142,8 +142,9 @@ const DevelopmentProcess = () => {
 
       {/* Ball Exit Section */}
       <div className="diTaJz d-none d-lg-block">
-        <div className="ballExit" style={{ position: "absolute", bottom: "20px", right:'140px'
-         }}>
+        <div className="ballExit" style={{
+          position: "absolute", bottom: "20px", right: '140px'
+        }}>
           <img
             alt="ball exit"
             loading="lazy"

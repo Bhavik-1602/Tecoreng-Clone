@@ -31,7 +31,7 @@ const WhyTecoreng = () => {
           </p>
           
           {/* Button - Properly sized for all screens */}
-          <button className="w-40 md:w-48 lg:w-60 h-10 md:h-12 bg-gradient-to-r from-[#F47B55] to-[#FF3D00] text-white text-sm md:text-base lg:text-lg py-1 px-4 border-b-4 border-[#701d04] font-bold rounded-lg md:rounded-xl transform transition-all duration-200 hover:-translate-y-1 hover:border-b-[5px] active:translate-y-0 active:border-b-4">
+          <button  style={{borderRadius:"15px"}} className="w-40 md:w-48 lg:w-60 h-10 md:h-12 bg-gradient-to-r from-[#F47B55] to-[#FF3D00] text-white text-sm md:text-base lg:text-lg py-1 px-4 border-b-4 border-[#701d04] font-bold rounded-lg md:rounded-xl transform transition-all duration-200 hover:-translate-y-1 hover:border-b-[5px] active:translate-y-0 active:border-b-4">
             GET IN TOUCH
           </button>
         </div>

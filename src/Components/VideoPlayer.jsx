@@ -1,10 +1,21 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import video from '../assets/Image/Tecoreng_fullVideo.mp4'; // Update the path to match your video location
 
 const VideoPlayer = () => {
     const [showControls, setShowControls] = useState(false);
     const [isPlaying, setIsPlaying] = useState(true); // Start with video playing (autoPlay)
+    const [isLoading, setIsLoading] = useState(true); // Track loading state
     const videoRef = useRef(null);
+    
+    // Effect to handle initial loading state
+    useEffect(() => {
+        const videoElement = videoRef.current;
+        if (videoElement) {
+            if (videoElement.readyState >= 3) {
+                setIsLoading(false);
+            }
+        }
+    }, []);
     
     const togglePlayPause = () => {
         if (videoRef.current) {
@@ -34,6 +45,9 @@ const VideoPlayer = () => {
                     controls={showControls} // Controls only show when 'showControls' is true
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
+                    onLoadedData={() => setIsLoading(false)}
+                    onWaiting={() => setIsLoading(true)}
+                    onPlaying={() => setIsLoading(false)}
                 >
                     <source src={video} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -78,8 +92,8 @@ const VideoPlayer = () => {
                 <div 
                     className="absolute inset-0 flex items-center justify-center bg-[#01132E]/50 backdrop-blur-sm transition-opacity duration-300"
                     style={{ 
-                        opacity: videoRef.current?.readyState < 3 ? 1 : 0, 
-                        pointerEvents: videoRef.current?.readyState < 3 ? 'auto' : 'none' 
+                        opacity: isLoading ? 1 : 0, 
+                        pointerEvents: isLoading ? 'auto' : 'none' 
                     }}
                 >
                     <div className="animate-spin rounded-full h-12 w-12 border-4 border-white border-t-transparent"></div>

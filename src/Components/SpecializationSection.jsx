@@ -124,7 +124,7 @@ function SpecializationSection() {
                                     ? 'bg-white text-black p-1 sm:p-1 md:p-4 lg:p-6 z-20 transform scale-100 h-[180px] sm:h-[220px] md:h-[280px] lg:h-[350px] w-[160px] sm:w-[220px] md:w-[320px] lg:w-[400px]'
                                     : 'bg-white text-black h-[120px] sm:h-[260px] md:h-[100px] lg:h-[250px] w-[150px] sm:w-[120px] md:w-[160px] lg:w-[250px] p-1 sm:p-2 md:p-3 lg:p-4 transform scale-90 opacity-70 hover:opacity-90 '
                                 }   
-                                ${index === 0 ? 'z-10 -mr-2 sm:-mr-4 md:-mr-6 lg:-mr-8' : ''}
+                                ${index === 0 ? 'z-10 -mr-0 sm:-mr-4 md:-mr-6 lg:-mr-0' : ''}
                                 ${index === 2 ? 'z-10 -ml-2 sm:-ml-4 md:-ml-6 lg:-ml-8' : ''}
                                 ${getShakeAnimation(index)}
                             `}
