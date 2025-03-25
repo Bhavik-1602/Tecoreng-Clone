@@ -216,13 +216,13 @@ const ContactForm = () => {
             </div>
 
             {/* File Upload Input */}
-            <div className="mb-6 relative">
+            <div className="mb-6 ">
               <label
                 htmlFor="file-upload"
                 className="w-full py-5 border-2 border-dotted border-gray-300 text-gray-600 text-center cursor-pointer flex items-center justify-center"
               >
-                <Upload className="w-6 h-6 text-gray-600" />
-                <span className="ml-2">Upload Additional File</span>
+                <Upload className=" text-gray-600 justify-center items-center" Upload S/>
+                <span className="w-6 h-6 justify-center items-center">Upload Additional File</span>
                 <input
                   id="file-upload"
                   type="file"

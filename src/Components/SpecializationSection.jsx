@@ -71,7 +71,22 @@ function SpecializationSection() {
     return (
         <section className="px-4 sm:px-8 md:px-12 lg:px-16 py-5 bg-[#01132e] text-white">
             <div className="container mx-auto p-4 md:p-6">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl text-left font-bold">
+                <h2
+                    className="text-3xl md:text-4xl lg:text-5xl text-left font-bold"
+                    style={{
+                        textShadow: `
+                            rgb(239, 237, 227) -1px -1px 1px, 
+                            rgb(1, 19, 46) 0px 1px 0px, 
+                            rgb(1, 19, 46) 0px 2px 0px, 
+                            rgb(1, 19, 46) 0px 3px 0px, 
+                            rgb(77, 89, 108) 0px 4px 0px, 
+                            rgba(0, 0, 0, 0.9) 0px 0px 0px, 
+                            rgba(0, 0, 0, 0.3) 0px 0px 0px, 
+                            rgba(0, 0, 0, 0.5) 0px 0px 0px, 
+                            rgba(0, 0, 0, 0.9) 0px 0px 0px
+                        `
+                    }}
+                >
                     Our Specialization
                 </h2>
                 <br />
@@ -109,7 +124,7 @@ function SpecializationSection() {
                         animation: shakeRight 0.5s ease-in-out;
                     }
                 `}</style>
-                <div className="flex items-center justify-center space-x-2  sm:space-x-4 md:space-x-6 lg:space-x-8">
+                <div className="flex items-center justify-center space-x-2 sm:space-x-4 md:space-x-6 lg:space-x-8">
                     {getVisibleCards().map((service, index) => (
                         <div
                             key={index}
@@ -120,45 +135,62 @@ function SpecializationSection() {
                                 duration-400
                                 rounded-lg
                                 overflow-hidden
+                                flex flex-col
+                                items-center
+                                justify-between
+                                bg-white 
+                                text-black 
                                 ${index === 1
-                                    ? 'bg-white text-black p-1 sm:p-1 md:p-4 lg:p-6 z-20 transform scale-100 h-[180px] sm:h-[220px] md:h-[280px] lg:h-[350px] w-[160px] sm:w-[220px] md:w-[320px] lg:w-[400px]'
-                                    : 'bg-white text-black h-[120px] sm:h-[260px] md:h-[100px] lg:h-[250px] w-[150px] sm:w-[120px] md:w-[160px] lg:w-[250px] p-1 sm:p-2 md:p-3 lg:p-4 transform scale-90 opacity-70 hover:opacity-90 '
+                                    ? 'p-4 sm:p-5 md:p-6 lg:p-5 z-20 transform scale-100 h-[280px] sm:h-[320px] md:h-[380px] lg:h-[370px] w-[240px] sm:w-[280px] md:w-[320px] lg:w-[500px]'
+                                    : 'p-2 sm:p-3 md:p-4 lg:p-5 transform scale-90 opacity-70 hover:opacity-90 h-[200px] sm:h-[240px] md:h-[280px] lg:h-[320px] w-[180px] sm:w-[220px] md:w-[260px] lg:w-[320px]'
                                 }   
                                 ${index === 0 ? 'z-10 -mr-0 sm:-mr-4 md:-mr-6 lg:-mr-0' : ''}
                                 ${index === 2 ? 'z-10 -ml-2 sm:-ml-4 md:-ml-6 lg:-ml-8' : ''}
                                 ${getShakeAnimation(index)}
                             `}
                         >
-                            <div className="flex flex-col items-center justify-start text-center h-full w-full">
+                            <div className={`
+                                w-full 
+                                flex 
+                                justify-center 
+                                mb-4
+                                ${index === 1
+                                    ? 'h-32 sm:h-40 md:h-48 lg:h-46'
+                                    : 'h-24 sm:h-32 md:h-40 lg:h-36'
+                                }
+                            `}>
                                 <img
                                     src={service.icon}
                                     alt={service.title}
                                     className={`
-                                        ${index === 1 
-                                            ? 'w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 mb-1 sm:mb-2 md:mb-3 lg:mb-4' 
-                                            : 'w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 mb-1 md:mb-2 '}
+                                        object-contain
+                                        ${index === 1
+                                            ? 'w-15 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-28 lg:h-38'
+                                            : 'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32'}
                                         transition-all duration-500
                                     `}
                                 />
+                            </div>
+
+                            <div className="w-full text-center px-2 sm:px-3 md:px-4 lg:px-5">
                                 <h3 className={`
-                                    font-bold mb-1 sm:mb-2
-                                    ${index === 1 
-                                        ? 'text-xs sm:text-sm md:text-base lg:text-lg' 
-                                        : 'text-[8px] sm:text-[10px] md:text-xs lg:text-sm'}
-                                    transition-colors duration-500 px-1
+                                    font-bold mb-2 sm:mb-3
+                                    ${index === 1
+                                        ? 'text-base sm:text-lg md:text-xl lg:text-2xl'
+                                        : 'text-sm sm:text-base md:text-lg lg:text-xl'}
+                                    transition-colors duration-500
                                 `}>
                                     {service.title}
                                 </h3>
-                                <div className="flex-grow overflow-hidden">
-                                    <p className={`
-                                        transition-colors duration-500 px-1
-                                        ${index === 1 
-                                            ? 'text-[10px] sm:text-xs md:text-sm lg:text-base line-clamp-3 md:line-clamp-4' 
-                                            : 'text-[6px] sm:text-[8px] md:text-xs lg:text-sm line-clamp-2 md:line-clamp-3'}
-                                    `}>
-                                        {service.description}
-                                    </p>
-                                </div>
+
+                                <p className={`
+                                    transition-colors duration-500
+                                    ${index === 1
+                                        ? 'text-xs sm:text-sm md:text-base lg:text-base line-clamp-4'
+                                        : 'text-[10px] sm:text-xs md:text-sm lg:text-sm line-clamp-3'}
+                                `}>
+                                    {service.description}
+                                </p>
                             </div>
                         </div>
                     ))}

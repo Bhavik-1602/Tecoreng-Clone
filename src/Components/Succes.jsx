@@ -24,10 +24,16 @@ function Success() {
 
   return (
     <section className="bg-[#01132e] text-white py-8 sm:py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-left mb-2 sm:mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-left mb-2 sm:mb-4 
+        text-[rgb(239,237,227)] 
+          drop-shadow-[0px_1px_0px_rgb(1,19,46)], 
+          drop-shadow-[0px_2px_0px_rgb(1,19,46)], 
+          drop-shadow-[0px_3px_0px_rgb(1,19,46)],
+          drop-shadow-[0px_4px_0px_rgb(77,89,108)]">
+
           Our Success Stories
-        </h2>
+        </h1>
         
         {/* Card grid - changes to single column on mobile, 2 columns on tablets, 3 columns on larger screens */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6">

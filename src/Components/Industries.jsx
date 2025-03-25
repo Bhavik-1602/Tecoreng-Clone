@@ -12,10 +12,16 @@ function Industries() {
   
   return (
     <section className="w-full bg-[#01132e] text-white py-10">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-5xl font-semibold mb-6 text-left">
+      <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-15">
+        <h1 className="text-5xl font-semibold mb-6 text-left
+        text-[rgb(239,237,227)] 
+          drop-shadow-[0px_1px_0px_rgb(1,19,46)], 
+          drop-shadow-[0px_2px_0px_rgb(1,19,46)], 
+          drop-shadow-[0px_3px_0px_rgb(1,19,46)],
+          drop-shadow-[0px_4px_0px_rgb(77,89,108)]">
+
           Industries We Are Experts In
-        </h2>
+        </h1>
         <br />
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mx-auto">

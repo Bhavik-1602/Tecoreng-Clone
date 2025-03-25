@@ -123,10 +123,10 @@ const ServiceCard = ({ service }) => {
     >
       <a href={service.href} aria-label={service.title} className="flex-1 flex flex-col md:flex-row items-start md:items-center w-full">
         <div className="h-12 w-12 mr-5 md:w-14 md:h-14 flex-shrink-0 mb-3 md:mb-0">
-          <img 
-            src={isHovered ? service.hoverIcon : service.icon} 
-            alt={service.title} 
-            className="w-full h-full object-contain transition-all duration-500" 
+          <img
+            src={isHovered ? service.hoverIcon : service.icon}
+            alt={service.title}
+            className="w-full h-full object-contain transition-all duration-500"
           />
         </div>
         <div className="md:ml-14 w-full">
@@ -141,10 +141,10 @@ const ServiceCard = ({ service }) => {
         {service.technologies.map((tech, index) => (
           <div key={index} className="flex flex-col items-center justify-center px-2 md:px-4 text-xs md:text-base text-center">
             <div className="w-8 h-8 md:w-12 md:h-12">
-              <img 
-                src={tech.icon} 
-                alt={tech.name} 
-                className="w-full h-full object-contain" 
+              <img
+                src={tech.icon}
+                alt={tech.name}
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="mt-1 md:mt-2">{tech.name}</div>
@@ -158,8 +158,18 @@ const ServiceCard = ({ service }) => {
 const ServicesSection = () => {
   return (
     <section className="flex flex-col items-center px-3 py-5 md:px-30 md:py-16 bg-[#01132e] text-white">
-      <div className="container">
-        <h2 className="pb-5 md:p-0 text-2xl md:text-5xl leading-tight md:leading-[84px] text-shadow-custom">
+      <div className="container mx-auto px-4 sm:px-10 lg:px-15">
+        <h2 className="pb-5 md:p-0 text-8xl lg:text-7xl leading-tight md:leading-[104px] text-shadow-custom
+        " style={{
+            textShadow: `rgb(239, 237, 227) -1px -1px 1px, 
+          rgb(1, 19, 46) 0px 1px 0px, 
+          rgb(1, 19, 46) 0px 2px 0px, 
+          rgb(1, 19, 46) 0px 3px 0px, 
+          rgb(77, 89, 108) 0px 4px 0px, 
+          rgba(0, 0, 0, 0.9) 0px 0px 0px, 
+          rgba(0, 0, 0, 0.3) 0px 0px 0px, 
+          rgba(0, 0, 0, 0.5) 0px 0px 0px, 
+          rgba(0, 0, 0, 0.9) 0px 0px 0px` }}>
           Services We Offer
         </h2>
         <p className="text-[12px] md:text-[16px] text-left">

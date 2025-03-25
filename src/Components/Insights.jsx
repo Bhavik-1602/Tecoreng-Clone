@@ -63,15 +63,15 @@ const Insights = () => {
     };
 
     return (
-        <div className='w-full bg-[#112542]'>
-        <div className="container mx-auto px-4 py-3 sm:py-16 bg-[#112542]">
+        <div className='w-full bg-[#01132e]'>
+        <div className="container mx-auto  px-4 sm:px-6 lg:px-15 bg-[#01132e]">
             {/* Main heading for the section */}
             <h1
                 className="text-4xl text-white font-extrabold text-left mb-8  tracking-wide"
-                // style={{
-                //     textShadow:
-                //         "rgb(239, 237, 227) -1px -1px 1px, rgb(1, 19, 46) 0px 1px 0px, rgb(1, 19, 46) 0px 2px 0px, rgb(1, 19, 46) 0px 3px 0px, rgb(1, 19, 46) 0px 4px 0px, rgb(1, 19, 46) 0px 5px 0px, rgb(77, 89, 108) 0px 6px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px, rgba(0, 0, 0, 0.3) 0px 0px 0px, rgba(0, 0, 0, 0.5) 0px 0px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px",
-                // }}
+                style={{
+                    textShadow:
+                        "rgb(239, 237, 227) -1px -1px 1px, rgb(1, 19, 46) 0px 1px 0px, rgb(1, 19, 46) 0px 2px 0px, rgb(1, 19, 46) 0px 3px 0px, rgb(1, 19, 46) 0px 4px 0px, rgb(1, 19, 46) 0px 5px 0px, rgb(77, 89, 108) 0px 6px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px, rgba(0, 0, 0, 0.3) 0px 0px 0px, rgba(0, 0, 0, 0.5) 0px 0px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px",
+                }}
             >
                 Tecoreng insights
             </h1>

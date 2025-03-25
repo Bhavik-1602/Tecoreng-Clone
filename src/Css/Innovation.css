@@ -15,52 +15,52 @@
 /* CSS for the floating ball and rotating effect along a circular path */
 @keyframes rotate {
   0% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translate(0, 0) rotate(10deg);
   }
   4.17% {
-    transform: translate(17px, -10px) rotate(15deg);
+    transform: translate(17px, -10px) rotate(0deg);
   }
   8.33% {
-    transform: translate(35px, -20px) rotate(30deg);
+    transform: translate(35px, -20px) rotate(52deg);
   }
   12.5% {
-    transform: translate(57px, -25px) rotate(40deg);
+    transform: translate(57px, -25px) rotate(60deg);
   }
   16.67% {
-    transform: translate(80px, -20px) rotate(60deg);
+    transform: translate(80px, -20px) rotate(80deg);
   }
   20.83% {
-    transform: translate(105px, -10px) rotate(75deg);
+    transform: translate(105px, -10px) rotate(90deg);
   }
   25% {
-    transform: translate(130px, 0) rotate(90deg);
+    transform: translate(130px, 0) rotate(100deg);
   }
   33.33% {
     transform: translate(85px, 45px) rotate(120deg);
   }
   41.67% {
-    transform: translate(25px, 47px) rotate(150deg);
+    transform: translate(25px, 47px) rotate(130deg);
   }
   50% {
-    transform: translate(-5px, -5px) rotate(180deg);
+    transform: translate(-5px, -5px) rotate(260deg);
   }
   58.33% {
-    transform: translate(-45px, -25px) rotate(210deg);
+    transform: translate(-45px, -25px) rotate(280deg);
   }
   66.67% {
-    transform: translate(-90px, -25px) rotate(240deg);
+    transform: translate(-90px, -25px) rotate(300deg);
   }
   70% {
-    transform: translate(-100px, -28px) rotate(255deg);
+    transform: translate(-100px, -28px) rotate(320deg);
   }
   75% {
-    transform: translate(-150px, 20px) rotate(270deg);
+    transform: translate(-150px, 20px) rotate(3470deg);
   }
   83.33% {
-    transform: translate(-120px, 50px) rotate(300deg);
+    transform: translate(-120px, 50px) rotate(360deg);
   }
   91.67% {
-    transform: translate(-55px, 40px) rotate(330deg);
+    transform: translate(-55px, 40px) rotate(320deg);
   }
   100% {
     transform: translate(0, 0) rotate(360deg); /* End back at the start */
@@ -80,6 +80,7 @@
 /* For users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .floating-ball {
-    animation-duration: 40s; /* Slow down the animation for reduced motion preference */
+    animation-duration: 60s; /* Slow down the animation for reduced motion preference */
   }
 }
+

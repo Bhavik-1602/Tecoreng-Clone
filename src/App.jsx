@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
 import VideoPlayer from "./Components/VideoPlayer"
-import Innovation from "./Components/Innovation";
+import Innovation from "./Components/innovation";
 import SpecializationSection from "./Components/SpecializationSection";
 import Succes from "./Components/Succes";
 import Industries from "./Components/Industries";
@@ -17,6 +17,7 @@ import EngagementModels from "./Components/EngagementModels";
 
 
 
+
 function App() {
   return (
 
@@ -24,10 +25,10 @@ function App() {
     <div className="w-screen  overflow-x-hidden"
       style={{ margin: 0, padding: 0 }}>
       <Navbar />
-     
+    
 
       <VideoPlayer />
-      <Innovation />
+      <Innovation/>
       <ServicesSection />
       <WhyTecoreng />
       <SpecializationSection />

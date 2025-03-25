@@ -1,28 +1,25 @@
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS for styling
-import { useEffect, useState } from "react"; // Import hooks from React
-import laptop from "../assets/Image/laptop.svg"; // Import laptop image for the background
-import logo from "../assets/Image/Logo.svg"; // Import company logo
-import '../Css/Navbar.css'; // Custom styling for the Navbar
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from "react";
+import '../Css/Navbar.css';
+import laptop from "../assets/Image/laptop.svg";
+import logo from "../assets/Image/Logo.svg";
 
 const Navbar = () => {
-  // State hooks for managing Navbar behavior
-  const [menuOpen, setMenuOpen] = useState(false); // Toggle menu open/close on mobile
-  const [lastScrollY, setLastScrollY] = useState(0); // Store the last scroll position
-  const [showNavbar, setShowNavbar] = useState(true); // Whether to show or hide the Navbar on scroll
-  const [showDropdown, setShowDropdown] = useState(false); // Dropdown menu visibility
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  // Toggle the menu when the mobile menu button is clicked
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Navigation menu items array with dropdown handling
   const navItems = [
     { name: "Services", link: "/services" },
     {
       name: "About Us",
       link: "/about",
-      hasDropdown: true, // Dropdown exists for "About Us"
+      hasDropdown: true,
       dropdownItems: [
         { name: "Who we are", link: "/about/who-we-are" },
         { name: "Industries we serve", link: "/about/industries" }
@@ -33,60 +30,40 @@ const Navbar = () => {
     { name: "Blog", link: "/blog" },
   ];
 
-  // Effect hook for hiding/showing navbar based on scroll direction
   useEffect(() => {
     const handleScroll = () => {
-      // If scrolling down, hide the navbar
       if (window.scrollY > lastScrollY) {
         setShowNavbar(false);
-        setShowDropdown(false); // Hide dropdown if navbar is hidden
+        setShowDropdown(false);
       } else {
-        setShowNavbar(true); // Show navbar if scrolling up
+        setShowNavbar(true);
       }
-      setLastScrollY(window.scrollY); // Update last scroll position
+      setLastScrollY(window.scrollY);
     };
 
-    // Debounce scroll event for better performance
-    let timeoutId;
-    const debouncedHandleScroll = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(handleScroll, 10);
-    };
-
-    window.addEventListener("scroll", debouncedHandleScroll); // Add scroll event listener
-    return () => {
-      window.removeEventListener("scroll", debouncedHandleScroll); // Clean up the event listener
-      clearTimeout(timeoutId);
-    }
-  }, [lastScrollY]); // Re-run effect on scroll position change
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <div className="bg-[#01132E]" >
-      <div
-        className="App flex flex-col bg-[#01132E] text-white overflow-x-hidden"
-        style={{ minHeight: '100dvh' }}
-      >
-        {/* Navbar Header with scroll animation */}
-        <header 
+    <>
+      <div className="min-h-screen flex flex-col bg-[#01132E] text-white">
+        <header
           className={`top-0 left-0 right-0 z-50 bg-[#01132E] shadow-md transition-all duration-700 ease-in-out transform ${showNavbar
             ? "fixed top-0 opacity-100 translate-y-0"
             : "fixed top-[-100px] opacity-0 translate-y-[-100%]"
             }`}
         >
-          <nav className="navbar flex items-center gap-4 justify-between px-4 py-3">
-            {/* Logo Section */}
+          <nav className="flex items-center justify-between px-4 py-3">
             <div className="logo">
-              <img src={logo} alt="Logo" className="h-10" />
+              <img src={logo} alt="Logo" className="h-8" />
             </div>
 
             {/* Mobile Menu Button */}
             <button
               className="block md:hidden text-white focus:outline-none"
               onClick={toggleMenu}
-              aria-label="Toggle menu"
-              aria-expanded={menuOpen}
             >
-              {/* Toggle between hamburger and close icons */}
               {menuOpen ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -120,25 +97,19 @@ const Navbar = () => {
               )}
             </button>
 
-            {/* Desktop Navigation Links */}
-            <ul className="nav-links md:flex gap-8 hidden text-sm ">
+            {/* Desktop Navigation */}
+            <ul className="nav-links md:flex gap-6 hidden text-sm">
               {navItems.map((item) => (
-                <li key={item.name} className="text-lg relative">
-                  {/* Dropdown for "About Us" */}
+                <li key={item.name} className="text-base relative">
                   {item.hasDropdown ? (
                     <div
                       className="relative"
                       onMouseEnter={() => setShowDropdown(true)}
                       onMouseLeave={() => setShowDropdown(false)}
                     >
-                      <button 
-                        className="text-white hover:text-orange-500 no-underline flex items-center gap-1"
-                        aria-expanded={showDropdown}
-                        aria-haspopup="true"
-                      >
+                      <button className="text-white hover:text-orange-500 no-underline flex items-center gap-1">
                         {item.name}
-                        {/* Dropdown Arrow */}
-                        {/* <svg
+                        <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -151,20 +122,17 @@ const Navbar = () => {
                             strokeLinejoin="round"
                             d="M19 9l-7 7-7-7"
                           />
-                        </svg> */}
-                        
+                        </svg>
                       </button>
-                      {/* Show dropdown menu on hover */}
                       {showDropdown && (
-                        <div className="absolute top-full left-0 mt-2 no-underline w-48 bg-[#011e3d] rounded-lg shadow-lg py-2 z-50" role="menu">
-                          {item.dropdownItems?.map((dropItem) => (
+                        <div className="absolute top-full left-0 mt-1 w-44 bg-[#011e3d] rounded-lg shadow-lg py-1 z-50">
+                          {item.dropdownItems.map((dropItem) => (
                             <a
-                              key={dropItem?.name}
-                              href={dropItem?.link}
-                              className="block px-4 py-2 no-underline text-white hover:bg-[#022b54] hover:text-orange-500 text-sm"
-                              role="menuitem"
+                              key={dropItem.name}
+                              href={dropItem.link}
+                              className="block px-3 py-1.5 text-white hover:bg-[#022b54] hover:text-orange-500 text-sm"
                             >
-                              {dropItem?.name}
+                              {dropItem.name}
                             </a>
                           ))}
                         </div>
@@ -182,123 +150,118 @@ const Navbar = () => {
               ))}
             </ul>
 
-            {/* Action Buttons (only visible on desktop) */}
-            <div className="nav-buttons hidden md:flex gap-4">
-              <button style={{borderRadius:'15px'}} className="px-4 py-2 bg-transparent border border-[#f5f5f5] text-white rounded-full hover:bg-gradient-to-r hover:from-[#FFA07A] hover:to-[#FF6347] hover:border-transparent">
+            {/* Action Buttons */}
+            <div className="nav-buttons hidden md:flex gap-3">
+              <button className="px-3 py-1.5 bg-transparent border border-[#f5f5f5] text-white rounded-full hover:bg-gradient-to-r hover:from-[#FFA07A] hover:to-[#FF6347] hover:border-transparent">
                 Hire Developers
               </button>
-              <button  style={{borderRadius:'15px'}} className="px-4 py-2 bg-gradient-to-r from-[#FFA07A] to-[#FF6347] text-white rounded-full hover:from-[#E25F3C] hover:to-[#C84F33]">
+              <button className="px-3 py-1.5 bg-gradient-to-r from-[#FFA07A] to-[#FF6347] text-white rounded-full hover:from-[#E25F3C] hover:to-[#C84F33]">
                 Get a Quote
               </button>
             </div>
           </nav>
 
           {/* Mobile Navigation Menu */}
-          <ul
-            className={`nav-links md:hidden flex flex-col items-center gap-3 px-6 py-4 bg-[#001f3d] shadow-lg ${menuOpen ? "block" : "hidden"
+          <div
+            className={`md:hidden bg-[#001f3d] shadow-lg ${menuOpen ? "block" : "hidden"
               }`}
-            role="menu"
           >
-            {navItems.map((item) => (
-              <li key={item.name}>
-                {item.hasDropdown ? (
-                  <div className="w-full">
-                    <button
-                      onClick={() => setShowDropdown(!showDropdown)}
-                      className="text-white hover:text-orange-500 no-underline flex items-center gap-1 w-full"
-                      aria-expanded={showDropdown}
-                      aria-haspopup="true"
+            <ul className="flex flex-col items-center py-2">
+              {navItems.map((item) => (
+                <li key={item.name} className="w-full px-4">
+                  {item.hasDropdown ? (
+                    <div className="w-full">
+                      <button
+                        onClick={() => setShowDropdown(!showDropdown)}
+                        className="text-white hover:text-orange-500 no-underline flex items-center gap-1 w-full py-2"
+                      >
+                        {item.name}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          stroke="currentColor"
+                          className="w-4 h-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                      {showDropdown && (
+                        <div className="pl-4">
+                          {item.dropdownItems.map((dropItem) => (
+                            <a
+                              key={dropItem.name}
+                              href={dropItem.link}
+                              className="block text-white hover:text-orange-500 text-sm py-2"
+                            >
+                              {dropItem.name}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <a
+                      href={item.link}
+                      className="block text-white hover:text-orange-500 no-underline py-2"
                     >
                       {item.name}
-                      {/* Dropdown Arrow */}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-4 h-4"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
-                    {showDropdown && (
-                      <div className="mt-2 pl-4 space-y-2" role="menu">
-                        {item.dropdownItems.map((dropItem) => (
-                          <a
-                            key={dropItem.name}
-                            href={dropItem.link}
-                            className="block text-white hover:text-orange-500 text-sm py-1"
-                            role="menuitem"
-                          >
-                            {dropItem.name}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <a
-                    href={item.link}
-                    className="text-white hover:text-orange-500 no-underline"
-                  >
-                    {item.name}
-                  </a>
-                )}
+                    </a>
+                  )}
+                </li>
+              ))}
+              <li className="w-full px-4 space-y-2 pt-2 " style={{borderRadius:"15px"}}>
+                <button className="w-full px-3 py-1.5 bg-transparent border border-[#f5f5f5] text-white rounded-full hover:bg-gradient-to-r hover:from-[#FFA07A] hover:to-[#FF6347] hover:border-transparent" style={{borderRadius:"15px"}}>
+                  Hire Developers
+                </button>
+                <button className="w-full px-3 py-1.5 bg-gradient-to-r from-[#FFA07A] to-[#FF6347] text-white rounded-full hover:from-[#E25F3C] hover:to-[#C84F33]" style={{borderRadius:"15px"}}>
+                  Get a Quote
+                </button>
               </li>
-            ))}
-            {/* Action Buttons (Mobile) - Fixed text size */}
-          
-            <div className="flex flex-col gap-4 w-full mt-4">
-              <button className="w-full px-4 py-2 bg-transparent border-2 border-[#f5f5f5] text-white  hover:bg-gradient-to-r rounded-lg hover:from-[#FFA07A] hover:to-[#FF6347] hover:border-transparent text-lg">
-                Hire Developers
-              </button>
-              <button className="w-full px-4 py-2 bg-gradient-to-r from-[#FFA07A] to-[#FF6347] text-white rounded-full hover:from-[#E25F3C] hover:to-[#C84F33] text-lg">
-                Get a Quote
-              </button>
-            </div>
-            
-          </ul>
+            </ul>
+          </div>
         </header>
 
-        {/* Main Content Area - Using flex layout instead of absolute positioning */}
-        <div
-          className="container mx-auto px-4 flex flex-col min-h-screen relative z-10 pt-24 md:pt-32"
-          style={{
-            backgroundImage: `url(${laptop})`, // Set the background image
-            backgroundSize: "contain",
-            backgroundPosition: "right bottom",
-            backgroundRepeat: "no-repeat",
-            transform: "scale(1.05)", // Slight zoom effect on background
-            transition: "transform 0.3s ease-in-out", // Smooth transform on hover
-          }}
-        >
-          {/* Text content using flex layout instead of absolute positioning */}
-          <div className="font-bold w-full z-10 md:w-1/2 pt-4 md:pt-8">
-            <div className="w-full   md:text-left md:ml-0 mb-8">
-              <h1 className="Web text-4xl font-bold title md:text-8xl leading-tight mb-0 text-white">Web & Mobile App </h1>
-             
-              <h1 className="Web text-4xl font-bold title md:text-8xl leading-tight mb-0 text-white">Development</h1>
-              <h1 className="Web text-4xl font-bold title md:text-8xl leading-tight mb-8 text-white">Company</h1>
-              
+        {/* Hero Section */}
+        <div className="relative min-h-screen">
+          {/* Background laptop image */}
+          <div
+            className="absolute bgimage inset-0 bg-no-repeat bg-contain bg-right-bottom opacity-80 md:opacity-100 "
+            style={{
+              backgroundImage: `url(${laptop})`,
+              transform: "scale(1)",
+              transition: "transform 0.3s ease-in-out",
+              right:"200px"
+            }}
+          />
+
+          {/* Hero content */}
+          <div className="relative z-10 container mx-auto px-4 pt-32 md:pt-28">
+            <div className=" w-full top-[250px] left-[100px] absolute">
+              <h1 className=" bgfont text-6xl md:text-8xl font-extrabold leading-tight mt-2 mb-4 md:mb-6 text-white" 
+              style={{fontSize:"60px"}}>
+                Web & Mobile App
+                <br />
+                Development
+                <br />
+                Company
+              </h1>
+
               <button
-                className="flex getstart items-center justify-center px-1 py-2 m-2 text-white font-semibold rounded-4xl transition-all duration-300 sm:ml-1 md:ml-2"
+                className=" bgbutton flex items-center justify-center px-6 py-3 mt-6 md:mt-16 text-white font-bold rounded-lg transition-all duration-300 w-48"
                 style={{
-                  willChange: "transform",
-                  transition: "transform 250ms",
-                  background:
-                    "linear-gradient(94.76deg, rgb(244, 123, 85) 1.49%, rgb(255, 61, 0) 95.34%)", // Gradient background
-                  transform: "translateY(104px)", // Initial transform state
-                  height: "58px",
-                  fontWeight: "700",
-                  fontSize: "29px",
-                  borderRadius:"20px",
-                  lineHeight: "30px",
+                  background: "linear-gradient(94.76deg, rgb(244, 123, 85) 1.49%, rgb(255, 61, 0) 95.34%)",
+                  transform: "translateY(-4px)",
+                  fontSize: "18px",
+                  lineHeight: "24px",
                   textTransform: "uppercase",
+                  marginTop:"150px",
+                  borderRadius:"15px"
                 }}
                 onMouseEnter={(e) => (e.target.style.transform = "translateY(0)")}
                 onMouseLeave={(e) => (e.target.style.transform = "translateY(-4px)")}
@@ -309,34 +272,41 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Counter Section */}
+        {/* Stats Section */}
+        {/* Stats Section */}
+        <div className="relative z-8 border border-cyan-400 rounded-3xl w-[95%] md:w-[80%] mx-auto mt-8 md:mt-1 mb-3">
+          <div className="backdrop-blur-sm rounded-3xl p-2 md:p-3">
+            <div className="grid grid-cols-3 gap-1 md:gap-6">
+              <div className="text-center">
+                <div className="text-white text-[10px] sm:text-[12px] md:text-lg whitespace-nowrap">
+                  Successful Projects
+                </div>
+                <div className="text-cyan-400 text-[16px] sm:text-xl md:text-6xl font-bold">
+                  100+
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-white text-[10px] sm:text-[12px] md:text-lg whitespace-nowrap">
+                  Repeated Client
+                </div>
+                <div className="text-cyan-400 text-[16px] sm:text-xl md:text-6xl font-bold">
+                  80%
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-white text-[10px] sm:text-[12px] md:text-lg whitespace-nowrap">
+                  Years in Industry
+                </div>
+                <div className="text-cyan-400 text-[16px] sm:text-xl md:text-6xl font-bold">
+                  9+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      </div >
-      <div className="bg-[#112545] relative project z-10 border-2 rounded-3xl md:mt-0 md:pt-0 border-cyan-400 max-w-6xl mx-auto mt-16 px-4">
-  <div className="backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8">
-    <div className="flex flex-row overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-      {/* Successful Projects */}
-      <div className="text-center flex-shrink-0 w-1/3 sm:w-auto p-2">
-        <div className="text-white text-sm sm:text-lg md:text-xl">Successful Projects</div>
-        <div className="text-cyan-400 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">100+</div>
       </div>
-      
-      {/* Repeated Client */}
-      <div className="text-center flex-shrink-0 w-1/3 sm:w-auto p-2">
-        <div className="text-white text-sm sm:text-lg md:text-xl">Repeated Client</div>
-        <div className="text-cyan-400 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">80%</div>
-      </div>
-      
-      {/* Years in Industry */}
-      <div className="text-center flex-shrink-0 w-1/3 sm:w-auto p-2">
-        <div className="text-white text-sm sm:text-lg md:text-xl">Years in Industry</div>
-        <div className="text-cyan-400 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">9+</div>
-      </div>
-    </div>
-  </div>
-</div>
-      </div>
-  
+    </>
   );
 };
 

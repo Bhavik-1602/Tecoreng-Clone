@@ -12,6 +12,7 @@ import ball from '../assets/Image/ball-3d.svg'
 
 
 import '../Css/DevelopmentProcess.css';
+import { div } from 'framer-motion/client';
 
 const DevelopmentProcess = () => {
   const [ballStyle, setBallStyle] = useState({
@@ -45,7 +46,7 @@ const DevelopmentProcess = () => {
 
     // Define control points for the path
     const path = [
-      { x: -50, y: 0 },           // Start at ballentry (ball image position)
+      { x: 0, y: -50 },           // Start at ballentry (ball image position)
       { x: 1500, y: 800 },            // Research point
       { x: -50, y: 900 },             // Design point
       { x: 1050, y: 1200 },           // Development point
@@ -53,7 +54,7 @@ const DevelopmentProcess = () => {
       { x: 1200, y: 2000 },           // Deployment point
       { x: -125, y: 2500 },           // Evaluation point
       { x: 1050, y: 2600 },           // Maintenance point
-      { x: 1325, y: 2800 }            // End at ballexit (exit point)
+      { x: 1425, y: 3500 }            // End at ballexit (exit point)
     ];
 
     // Find current segment
@@ -91,15 +92,18 @@ const DevelopmentProcess = () => {
   }, []);
 
   return (
-    <div className="development-container" ref={containerRef}>
+    <div className='bg-[#01132e] '>
+    <div className="  development-container " ref={containerRef} >
       <h1
-        className="text-5xl  font-extrabold ml-10 text-left mb-9  text-white tracking-wide"
-      // style={{
-      //   textShadow: "rgb(239, 237, 227) -1px -1px 1px, rgb(1, 19, 46) 0px 1px 0px, rgb(1, 19, 46) 0px 2px 0px, rgb(1, 19, 46) 0px 3px 0px, rgb(1, 19, 46) 0px 4px 0px, rgb(1, 19, 46) 0px 5px 0px, rgb(77, 89, 108) 0px 6px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px, rgba(0, 0, 0, 0.3) 0px 0px 0px, rgba(0, 0, 0, 0.5) 0px 0px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px"
-      // }}
+        className=   "text-white tracking-wide mx-auto pl-10 "
+      style={{
+        textShadow: "rgb(239, 237, 227) -1px -1px 1px, rgb(1, 19, 46) 0px 1px 0px, rgb(1, 19, 46) 0px 2px 0px, rgb(1, 19, 46) 0px 3px 0px, rgb(1, 19, 46) 0px 4px 0px, rgb(1, 19, 46) 0px 5px 0px, rgb(77, 89, 108) 0px 6px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px, rgba(0, 0, 0, 0.3) 0px 0px 0px, rgba(0, 0, 0, 0.5) 0px 0px 0px, rgba(0, 0, 0, 0.9) 0px 0px 0px"
+      }}
       >
         Our Development Process
       </h1>
+      <br />
+      
 
       <div className="svg-container">
         <img src={opening} alt="Ball Entry" className="ball-entry ml-5 mb-8" />
@@ -155,6 +159,7 @@ const DevelopmentProcess = () => {
           />
         </div>
       </div>
+    </div>
     </div>
   );
 };

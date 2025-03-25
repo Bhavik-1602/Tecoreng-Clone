@@ -55,7 +55,7 @@ const Appreciations = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex(prevIndex => (prevIndex + 1) % testimonials.length);
-    }, 2000);
+    }, 3000);
     
     return () => clearInterval(timer);
   }, [testimonials.length]);
@@ -88,9 +88,20 @@ const Appreciations = () => {
 
   return (
     <div className="w-full bg-[#01132E] py-3 sm:py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-15 ">
         {/* Section header */}
-        <h1 className="text-4xl text-white font-extrabold text-left mb-8 tracking-wide">
+        <h1 className="text-4xl text-white font-extrabold text-left mb-8 tracking-wide
+        
+        drop-shadow-[-1px_-1px_1px_rgb(239,237,227)],
+  drop-shadow-[0px_1px_0px_rgb(1,19,46)],
+  drop-shadow-[0px_2px_0px_rgb(1,19,46)],
+  drop-shadow-[0px_3px_0px_rgb(1,19,46)],
+  drop-shadow-[0px_4px_0px_rgb(77,89,108)],
+  drop-shadow-[0px_0px_0px_rgba(0,0,0,0.9)],
+  drop-shadow-[0px_0px_0px_rgba(0,0,0,0.3)],
+  drop-shadow-[0px_0px_0px_rgba(0,0,0,0.5)],
+  drop-shadow-[0px_0px_0px_rgba(0,0,0,0.9)]">
+
           Appreciation from Clients
         </h1>
         <br />
@@ -128,7 +139,7 @@ const Appreciations = () => {
         </div>
 
         {/* Navigation dots */}
-        {/* <div className="flex justify-center mt-8 gap-2">
+        <div className="flex justify-center mt-8 gap-2">
           {testimonials.map((_, index) => (
             <button
               key={index}
@@ -137,7 +148,7 @@ const Appreciations = () => {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </div> */}
+        </div>
       </div>
     </div>
   );

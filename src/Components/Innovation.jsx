@@ -54,7 +54,7 @@ const Innovation = () => {
             <img
               src={Ball}
               alt="Floating Ball"
-              className="absolute w-8 h-8 sm:w-15 sm:h-11 floating-ball"
+              className="absolute w-8 h-8 sm:w-15 sm:h-11 floating-ball skew-x-12"
             />
           </div>
         </div>

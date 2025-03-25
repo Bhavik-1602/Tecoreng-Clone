@@ -1,12 +1,12 @@
 /* Container styles */
 .development-container {
-  display: flex;
-  background-color: #0b1b33;
+  display: flex grid ;
+  background-color: #01132e ;
   flex-direction: column;
   width: 100vw;
-  max-width: 100%;
+  max-width: 90%;
   margin: 0 auto;
-  padding-top: 4rem;
+  padding-top: 4cqb;
   padding-bottom: 4rem;
   min-height: 100dvh;
   overflow: hidden; /* Hide horizontal scrolling */

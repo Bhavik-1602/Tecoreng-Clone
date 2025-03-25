@@ -1,5 +1,3 @@
-// EngagementModels.js
-import { div } from 'framer-motion/client';
 import React, { useState } from 'react';
 
 const models = [
@@ -21,9 +19,23 @@ function EngagementModels() {
     const [isHover, setIsHover] = useState(false);
 
     return (
-      <div className='bg-[#112542]'>
-        <div className="w-full bg-[#112542] container mx-auto p-4 md:p-6">
-            <h2 className="text-3xl text-white md:text-4xl lg:text-5xl text-left font-bold">
+      <div className='bg-[#01132e]'>
+        <div className="w-full bg-[#01132e] container mx-auto p-4 md:p-6">
+            <h2 className="text-3xl text-white md:text-4xl lg:text-5xl text-left font-bold"
+                style={{
+                    textShadow: `
+                        rgb(239, 237, 227) -1px -1px 1px, 
+                        rgb(1, 19, 46) 0px 1px 0px, 
+                        rgb(1, 19, 46) 0px 2px 0px, 
+                        rgb(1, 19, 46) 0px 3px 0px, 
+                        rgb(77, 89, 108) 0px 4px 0px, 
+                        rgba(0, 0, 0, 0.9) 0px 0px 0px, 
+                        rgba(0, 0, 0, 0.3) 0px 0px 0px, 
+                        rgba(0, 0, 0, 0.5) 0px 0px 0px, 
+                        rgba(0, 0, 0, 0.9) 0px 0px 0px
+                    `
+                }}
+            >
                 Our Flexible Engagement Models
             </h2>
             <p className=" text-white text-xs sm:text-sm md:text-base leading-normal sm:leading-relaxed pt-4 w-full md:w-[90%]">
@@ -42,13 +54,13 @@ function EngagementModels() {
                         onMouseEnter={() => setIsHover(true)}
                         onMouseLeave={() => setIsHover(false)}
                     >
-                        <div className="rounded-[15px] absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.58)_0%,rgba(1,19,46,0)_100%),linear-gradient(91.17deg,rgb(255,255,255)_-93.64%,rgb(120,179,255)_98.85%)] 
+                        <div className="rounded-[15px] absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.58)_0%,rgba(1,19,46,0)_100%),linear-gradient(91.17deg,rgb(255,255,255)_-93.64%,rgb(129,179,255)_98.85%)] 
                         transition-all duration-1500 h-[90px] sm:h-[100px] md:h-[115px] group-hover:h-full"></div>
 
                         {/* Content Container */}
                         <div className="relative z-10 flex flex-col h-full">
                             <div
-                                className="h-[90px] sm:h-[100px] md:h-[115px] w-full flex items-center justify-center bg-[linear-gradient(rgba(255,255,255,0.58)_0%,rgba(1,19,46,0)_100%),linear-gradient(91.17deg,rgb(255,255,255)_-93.64%,rgb(129,179,255)_98.85%)]"
+                                className="h-[90px] sm:h-[100px] md:h-[115px] w-full flex items-center justify-center bg-[linear-gradient(rgba(255,255,255,255,0.58)_0%,rgba(1,19,46,0)_100%),linear-gradient(91.17deg,rgb(255,255,255)_-93.64%,rgb(129,179,255)_100%)]"
                             >
                                 <h3 className="text-[#151515] text-lg sm:text-xl md:text-2xl font-semibold text-center px-2">
                                     {model.title}
@@ -65,7 +77,7 @@ function EngagementModels() {
                 ))}
             </div>
         </div>
-        </div>
+      </div>
     );
 }
 
